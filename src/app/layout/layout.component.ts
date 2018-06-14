@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-layout',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
+  isCollapsed: false;
+  subscription: any;
 
-  constructor() { }
+  constructor(private layoutService : LayoutService) {
+    this.subscription = this.layoutService.getSide().subscribe(
+      isCollapsed => { 
+        this.isCollapsed = isCollapsed; 
+    });
+   }
 
   ngOnInit() {
   }
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

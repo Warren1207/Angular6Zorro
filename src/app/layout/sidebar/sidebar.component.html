@@ -1,0 +1,9 @@
+<div class="logo"></div>
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+  <li nz-submenu *ngFor="let menu of appMenu">
+    <span title><i class="anticon anticon-user"></i><span class="nav-text">{{menu.title}}</span></span>
+    <ul *ngIf="menu.children && menu.children.length>0">
+      <li nz-menu-item *ngFor="let child of menu.children">{{child.title}}</li>
+    </ul>
+  </li>
+</ul>
