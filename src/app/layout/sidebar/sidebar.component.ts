@@ -78,7 +78,9 @@ export class SidebarComponent implements OnInit {
   subscription: any;
 
   constructor(private layoutService : LayoutService) { 
-    this.subscription = this.layoutService.getSide().subscribe(isCollapsed => { this.isCollapsed = isCollapsed; });
+    this.subscription = this.layoutService.getSide().subscribe(isCollapsed => { 
+      this.isCollapsed = isCollapsed;
+    });
   }
 
   ngOnInit() {

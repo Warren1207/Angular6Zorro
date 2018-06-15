@@ -8,7 +8,7 @@ export class LayoutService {
     constructor() { }
 
     setSide(isCollapsed: boolean) {
-      this.subject.next({isCollapsed : isCollapsed});
+      this.subject.next(isCollapsed);
     }
 
     getSide(): Observable<any> {
